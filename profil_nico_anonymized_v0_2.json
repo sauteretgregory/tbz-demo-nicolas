@@ -1,0 +1,436 @@
+{
+  "schema_version": "TBZ_PROFILE_ANON_V0.2",
+  "profile_id": "NICO_ANON",
+  "public_label": "Profil N",
+  "anonymization_status": "anonymized_demo_profile",
+  "visibility_warning": "Démonstrateur non connecté au serveur sécurisé. Ne pas ajouter de données nominatives, coordonnées personnelles, CV complet non anonymisé ou documents confidentiels.",
+  "candidate_identity": {
+    "display_name": "Profil N",
+    "real_name_exposed": false,
+    "location_public": "Paris / France",
+    "personal_contact_details": null
+  },
+  "headline": "Clinical Operations / eClinical Transformation / Regulatory-grade Data Solutions",
+  "positioning": {
+    "primary": "Clinical Operations / eClinical Transformation / Regulatory Data Solutions",
+    "seniority": "senior_executive",
+    "target_roles_strong": [
+      "Clinical Operations Director",
+      "eClinical Program Director",
+      "Clinical Systems Transformation Lead",
+      "CTMS / EDC Implementation Lead",
+      "Regulatory Data Solutions Lead",
+      "CDISC / SEND Program Lead",
+      "Inspection Readiness / GCP Performance Lead",
+      "Senior SME / Consultant Clinical Operations Technology"
+    ],
+    "target_roles_possible_with_clarification": [
+      "Clinical Data Management Lead",
+      "RBQM Lead",
+      "Vendor Oversight Lead",
+      "Business Development Life Sciences",
+      "Product Owner eClinical",
+      "Clinical Systems / Digital Transformation Consultant"
+    ],
+    "roles_to_avoid_or_reframe": [
+      "Hands-on Python Developer",
+      "Data Scientist opérationnel",
+      "Biostatistician",
+      "Medical Doctor / Physician",
+      "Pharmacist",
+      "Junior Clinical Project Manager"
+    ]
+  },
+  "summary": "Leader senior Clinical Operations avec 28+ ans d'expérience en développement pharmaceutique global, opérations cliniques et non cliniques, conformité GCP/ICH, inspection readiness, gouvernance CTMS/EDC et déploiement de solutions eClinical / regulatory data. Profil particulièrement fort à l'interface R&D, opérations, qualité, réglementaire, CROs/vendors, équipes IT/SQA/SME et clients pharma internationaux.",
+  "languages": [
+    {
+      "language": "French",
+      "level": "native"
+    },
+    {
+      "language": "English",
+      "level": "fluent / operational international"
+    }
+  ],
+  "availability_preferences": {
+    "work_mode": [
+      "hybrid",
+      "full remote"
+    ],
+    "international_travel": "possible / to clarify",
+    "geography": "France / Europe / global remote"
+  },
+  "core_domains": [
+    "Clinical Operations",
+    "Clinical Trial Management Phase I-IV",
+    "Nonclinical regulatory data solutions",
+    "eClinical technology deployment",
+    "CTMS / EDC governance",
+    "GCP / ICH compliance",
+    "21 CFR Part 11",
+    "CDISC / SEND / SDTM",
+    "Regulatory submission readiness",
+    "RBQM / KPI / KRI performance analytics",
+    "CRO / vendor oversight",
+    "Inspection readiness / audit readiness",
+    "Site activation / study start-up / enrollment strategy",
+    "Computer System Validation",
+    "Clinical Data Management interface",
+    "Change management / SOP authoring",
+    "Cross-functional leadership",
+    "Bid defense / dispute mitigation",
+    "Remote global delivery"
+  ],
+  "strong_proofs": [
+    "28+ years in clinical and nonclinical research operations",
+    "13+ years full remote global delivery for regulatory technology programs",
+    "12-year CDISC/SEND regulatory platform engagement with major pharma clients",
+    "Expansion of nonclinical study coverage to 100% by 2025 in a major long-term client program",
+    "Multi-client deployments involving BMS, Bayer, Ipsen, Sanofi and other pharma/biotech accounts",
+    "48+ countries field operations performance/compliance deployment during Wyeth/Pfizer period",
+    "EDC-to-CTMS patient data integration and harmonization across European operations",
+    "Global CTMS IMPACT deployment for European Research Organisation hubs including Africa and APAC",
+    "Roadshow training / deployment support for approximately 250 CRA FTEs EMEA/APAC",
+    "Awards: IMPACT Project Team Award 1999; Enbrel Task Force Award 1998"
+  ],
+  "experience": [
+    {
+      "company_label": "PointCross Life Sciences",
+      "role": "Director / Project Director Europe",
+      "period": "2012-2026",
+      "mode": "full remote",
+      "scope": "Global regulatory/eClinical delivery for pharma clients",
+      "highlights": [
+        "Directed long-term CDISC/SEND regulatory program for a major pharma client",
+        "Expanded program scope to cover 100% of nonclinical studies by 2025",
+        "Led multi-client solution deployments across BMS, Bayer, Ipsen, Sanofi and other accounts",
+        "Managed cross-functional teams of SMEs, developers and SQA leads",
+        "Supported bid defenses, dispute mitigation, client retention and new business acquisition"
+      ],
+      "skills": [
+        "CDISC/SEND",
+        "regulatory platforms",
+        "project/program management",
+        "client governance",
+        "cross-functional leadership",
+        "computer system validation"
+      ]
+    },
+    {
+      "company_label": "Wyeth Research / Pfizer PGRD",
+      "role": "Assistant Director, European Field Operations Quality Support",
+      "period": "2009-2012",
+      "scope": "Pan-European clinical operations quality and performance framework",
+      "highlights": [
+        "Unified clinical operations quality metrics across Pfizer/Wyeth merger",
+        "Harmonized CTMS systems, KPIs and benchmarking frameworks",
+        "Served as primary EU liaison to Global Clinical Auditing group",
+        "Coordinated inspection-readiness responses across study teams and country heads",
+        "Led EDC-to-CTMS integration as subject matter expert"
+      ],
+      "skills": [
+        "CTMS",
+        "EDC",
+        "GCP deviations",
+        "inspection readiness",
+        "KPI development",
+        "post-merger harmonization"
+      ]
+    },
+    {
+      "company_label": "Wyeth Pharmaceuticals",
+      "role": "Project Manager, Field Operations Technology and Quality Support",
+      "period": "2007-2008",
+      "scope": "Global field operations technology, quality support and benchmarking",
+      "highlights": [
+        "Built corporate GCP compliance monitoring framework",
+        "Designed global KPIs for Site Management and Clinical Trial Operations",
+        "Authored RACI chart for CTMS responsibilities",
+        "Delivered executive-level performance reporting to Global Site Management Heads"
+      ],
+      "skills": [
+        "GCP compliance monitoring",
+        "KPI/KRI",
+        "RACI",
+        "executive reporting",
+        "CTMS governance"
+      ]
+    },
+    {
+      "company_label": "Wyeth Pharmaceuticals",
+      "role": "Senior Clinical Operations Coordinator, European Research Organization",
+      "period": "2001-2006",
+      "scope": "European clinical project coordination and technology rollout",
+      "highlights": [
+        "Served as European Clinical Project Manager on global Phase II POC studies in IBD",
+        "Coordinated start-up, regulatory submissions and site initiations across EU countries",
+        "Led requirements definition and rollout of eCRF and eMonitor platforms",
+        "Trained and mentored contract monitors on GCP/ICH and site visit reporting standards"
+      ],
+      "skills": [
+        "Phase II",
+        "study start-up",
+        "regulatory submissions",
+        "site initiation",
+        "eCRF",
+        "monitor training"
+      ]
+    },
+    {
+      "company_label": "Wyeth-Ayerst Research",
+      "role": "European Field Operations Analyst",
+      "period": "1997-2000",
+      "scope": "Field operations analytics, CTMS deployment and enrollment forecasting",
+      "highlights": [
+        "Delivered global CTMS IMPACT implementation for European Research Organisation hubs including Africa and APAC",
+        "Built enrollment forecasting models across Phase I-IV studies",
+        "Supported Enbrel Phase III RA registration operations",
+        "Received IMPACT Project Team Award and Enbrel Task Force Award"
+      ],
+      "skills": [
+        "CTMS IMPACT",
+        "forecasting",
+        "FTE allocation",
+        "Phase I-IV",
+        "enrollment analytics"
+      ]
+    },
+    {
+      "company_label": "Public Hospital / Toxicology Lab",
+      "role": "Laboratory Project Lead Operator Toxicology",
+      "period": "1997",
+      "scope": "Clinical sample processing and PK/PD support",
+      "highlights": [
+        "Supported antiviral therapy PK/PD work in HIV context",
+        "Contributed to publication/poster support"
+      ],
+      "skills": [
+        "toxicology",
+        "PK/PD",
+        "clinical sample processing"
+      ]
+    },
+    {
+      "company_label": "Wyeth-Ayerst Research",
+      "role": "Monitoring Data Analyst Clinical Affairs Europe",
+      "period": "1995-1996",
+      "scope": "Forecasting, reporting and outsourced monitoring validation",
+      "highlights": [
+        "Produced forecasting and productivity reporting",
+        "Validated outsourced monitoring payment data"
+      ],
+      "skills": [
+        "monitoring data",
+        "forecasting",
+        "productivity reporting"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "DESS / MSc",
+      "field": "Drug Metabolism, Pharmacokinetics and Toxicology",
+      "institution_label": "Université Paris Cité",
+      "period": "1994-1995"
+    },
+    {
+      "degree": "Master",
+      "field": "Biochemistry and Pharmacology",
+      "institution_label": "Université Paris Cité",
+      "period": "1990-1993"
+    }
+  ],
+  "skills": {
+    "clinical_operations": [
+      "Clinical Trial Management Phase I-IV",
+      "Clinical Operations",
+      "Site Management",
+      "Study Start-Up",
+      "Enrollment Strategy",
+      "FTE Planning",
+      "Clinical Monitoring",
+      "CRO Oversight",
+      "Vendor Oversight"
+    ],
+    "quality_compliance": [
+      "ICH-GCP",
+      "GCP",
+      "21 CFR Part 11",
+      "Audit Readiness",
+      "Inspection Readiness",
+      "GCP Deviations",
+      "SOP Authoring",
+      "Computer System Validation",
+      "Quality Control",
+      "Quality Assurance"
+    ],
+    "technology_data": [
+      "CTMS",
+      "EDC",
+      "eCRF",
+      "eMonitor",
+      "CDISC",
+      "SEND",
+      "SDTM",
+      "RBQM",
+      "KPI/KRI dashboards",
+      "Clinical Data Management interface",
+      "Regulatory Data Solutions",
+      "Translational Analytics",
+      "Biomarker Data"
+    ],
+    "leadership_business": [
+      "Project Management",
+      "Program Management",
+      "Cross-functional Team Leadership",
+      "Change Management",
+      "Bid Defense",
+      "Dispute Mitigation",
+      "Client Governance",
+      "Executive Reporting",
+      "Business Process"
+    ],
+    "therapeutic_or_scientific_exposure": [
+      "Drug Development",
+      "Pharmaceutical Industry",
+      "Biotechnology",
+      "Inflammation / IBD",
+      "Vaccines",
+      "Neuroscience",
+      "Cardiovascular",
+      "HIV PK/PD support",
+      "R&D"
+    ]
+  },
+  "affiliations_public": [
+    "CDISC",
+    "PHUSE",
+    "ACDM",
+    "SCDM"
+  ],
+  "publications_awards": [
+    "Saquinavir/Ritonavir PK/PD — World AIDS Conference 1998",
+    "IMPACT CTMS Project Team Award 1999",
+    "Enbrel Task Force Award 1998"
+  ],
+  "matching_rules": {
+    "strong_positive_keywords": [
+      "Clinical Operations",
+      "Clinical Trial",
+      "GCP",
+      "ICH",
+      "CTMS",
+      "EDC",
+      "CDISC",
+      "SEND",
+      "SDTM",
+      "RBQM",
+      "CRO",
+      "Inspection",
+      "Audit",
+      "Site Monitoring",
+      "Study Start-Up",
+      "Regulatory",
+      "Submission",
+      "eClinical",
+      "21 CFR Part 11",
+      "Vendor Oversight",
+      "KPI",
+      "KRI",
+      "Change Management",
+      "SOP",
+      "Computer System Validation"
+    ],
+    "medium_positive_keywords": [
+      "Pharma",
+      "Biotech",
+      "Life Sciences",
+      "R&D",
+      "Data Quality",
+      "Project Management",
+      "Program Management",
+      "Global",
+      "Full Remote",
+      "Clinical Systems",
+      "Business Process",
+      "Translational"
+    ],
+    "risk_keywords": [
+      "Python Developer",
+      "Machine Learning Engineer",
+      "Data Scientist",
+      "Biostatistician",
+      "Medical Doctor",
+      "Physician",
+      "Pharmacist",
+      "Cybersecurity",
+      "Cloud Architect",
+      "Sales Representative"
+    ],
+    "fit_decision_guidance": {
+      "85_plus": "Strong fit. Generate adapted CV and interview preparation.",
+      "70_84": "Good fit but clarify scope, management and hands-on expectations.",
+      "50_69": "Partial fit. Run diagnostic before CV adaptation.",
+      "below_50": "Likely off-target. Recommend refusal or repositioning."
+    }
+  },
+  "probe_questions": [
+    {
+      "topic": "Positioning",
+      "question": "Souhaites-tu viser prioritairement Clinical Operations Director, eClinical Program Director, Regulatory Data Solutions Lead, CDISC/SEND Program Lead ou consultant SME senior ?"
+    },
+    {
+      "topic": "Management",
+      "question": "Quel est le niveau exact de management récent : hiérarchique, transverse, client governance, vendors/CROs, équipes IT/SQA/SME ?"
+    },
+    {
+      "topic": "Certifications",
+      "question": "Quelles certifications sont réellement obtenues ou renouvelées : GCP, CDISC, PMP, Scrum, CSV, 21 CFR Part 11 ?"
+    },
+    {
+      "topic": "Hands-on technical scope",
+      "question": "Quelle est la part entre cadrage métier, configuration, validation, recette, data governance et développement réel ?"
+    },
+    {
+      "topic": "Mobility and language",
+      "question": "Confirmer anglais opérationnel, mobilité internationale, full remote/hybride et contraintes éventuelles."
+    }
+  ],
+  "interview_traps": [
+    "Pourquoi bouger après 13+ ans sur une mission très stable ?",
+    "Es-tu expert clinique, chef de programme IT, consultant SME ou product/delivery lead ?",
+    "Quelle est ta valeur si le poste demande du people management direct récent ?",
+    "Quelle est ta valeur si le poste demande une forte part hands-on data ou technique ?",
+    "Comment prouves-tu l'impact business et réglementaire des plateformes déployées ?"
+  ],
+  "do_not_claim_without_proof": [
+    "Médecin, pharmacien ou biostatisticien",
+    "Développeur hands-on",
+    "Data scientist opérationnel",
+    "Certification officielle PMP/Scrum/CDISC/GCP/CSV/21 CFR Part 11 non confirmée",
+    "Coordonnées personnelles ou identité complète sur page publique"
+  ],
+  "demo_payload": {
+    "default_score_state": {
+      "score": null,
+      "status": "no_offer_loaded",
+      "last_offer_hash": null,
+      "questions_answered": 0
+    },
+    "save_load_test": {
+      "can_load_profile": true,
+      "can_save_session": true,
+      "can_resume_session": true,
+      "expected_demo_flow": [
+        "Load anonymized profile",
+        "Paste target offer",
+        "Run static matching",
+        "Answer clarification questions",
+        "Save JSON session",
+        "Reload JSON session",
+        "Verify score/questions/state restored"
+      ]
+    }
+  },
+  "source_note": "Built from user-provided LinkedIn-style raw profile and existing anonymized TBZ socle. Public demo must remain anonymized."
+}
