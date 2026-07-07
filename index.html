@@ -22,7 +22,7 @@
  <div class="grid3"><article class="card"><h3>Compétences qui matchent</h3><ul id="matchSkills"><li>Clinical Operations</li><li>CTMS / EDC</li><li>GCP / ICH</li><li>CRO / Vendor Oversight</li><li>KPI / KRI Performance</li><li>Global delivery full remote</li></ul></article><article class="card"><h3>Preuves fortes à remonter</h3><ul><li>28+ ans en Clinical / Nonclinical Research Operations.</li><li>13+ ans de delivery global full remote.</li><li>Programmes Sanofi, BMS, Bayer, Ipsen, Novo Nordisk.</li><li>Déploiement et maintenance de solutions CDISC/SEND et regulatory-grade data.</li></ul></article><article class="card"><h3>Zones à arbitrer par l’utilisateur</h3><ul><li>Positionnement principal : Clin Ops Director, eClinical Program Director ou Regulatory Data Solutions.</li><li>Niveau de responsabilité budget / people management récent.</li><li>Certifications réellement obtenues : GCP, CDISC, validation, project management.</li></ul></article></div></div>
 </section>
 <section class="card" id="assistant"><h2>Assistant d’enrichissement du profil</h2><p>Le moteur propose une donnée ou une question. L’utilisateur décide : utiliser dans ce CV, conserver dans la mémoire locale RAW, modifier/préciser ou supprimer de la mémoire.</p><div class="info"><strong>Important :</strong> dans cette version statique, TalentBusterZ ne refuse pas définitivement une donnée. Il propose et classe. L’utilisateur joue le rôle de valideur de sa base locale.</div>
- <div class="card"><div class="small"><strong>Question Engine V0.6</strong> <span style="float:right" id="qCount">Question 1 / 4</span></div><h3 id="qTitle">L’offre peut viser plusieurs niveaux de direction clinique ou eClinical.</h3><p id="qText">Quel positionnement veux-tu privilégier : Clinical Operations Director, eClinical Program Director, CTMS/EDC Lead ou Regulatory Data Solutions ?</p><p style="color:#6d28d9;font-weight:800">Gain indicatif : +2 à +5 si l’utilisateur choisit d’utiliser la donnée dans ce CV.</p><div class="notice"><strong>Pour répondre simplement :</strong><br>1. Contexte : quelle mission ou quel programme ?<br>2. Action : qu’as-tu piloté personnellement ?<br>3. Résultat : quel impact observable ?</div><textarea id="answerInput" placeholder="Réponse de Profil N : contexte, action personnelle, résultat observable..."></textarea><br><button class="primary" onclick="proposeData()">Répondre</button><button onclick="fillHelp()">M’aider avec un exemple</button><button class="muted" onclick="nextQuestion()">Passer</button></div>
+ <div class="card"><div class="small"><strong>Question Engine V0.6</strong> <span style="float:right" id="qCount">Question 1 / 4</span></div><h3 id="qTitle">L’offre peut viser plusieurs niveaux de direction clinique ou eClinical.</h3><p id="qText">Quel positionnement veux-tu privilégier : Clinical Operations Director, eClinical Program Director, CTMS/EDC Lead ou Regulatory Data Solutions ?</p><p id="gainHint" style="color:#6d28d9;font-weight:800">Gain indicatif : +2 à +5 si l’utilisateur choisit d’utiliser la donnée dans ce CV.</p><div class="notice"><strong>Pour répondre simplement :</strong><br>1. Contexte : quelle mission ou quel programme ?<br>2. Action : qu’as-tu piloté personnellement ?<br>3. Résultat : quel impact observable ?</div><textarea id="answerInput" placeholder="Réponse de Profil N : contexte, action personnelle, résultat observable..."></textarea><br><button class="primary" onclick="proposeData()">Répondre</button><button onclick="fillHelp()">M’aider avec un exemple</button><button class="muted" onclick="nextQuestion()">Passer</button></div>
  <div id="suggestion" class="suggestion"><h4>Suggestion issue de la réponse utilisateur</h4><p id="suggestionText"></p><p class="small">Choisissez l’usage de cette donnée. Elle peut enrichir le CV actuel, rester dans la mémoire locale RAW pour plus tard, être modifiée ou être supprimée.</p><button class="green" onclick="useInCv()">Utiliser dans ce CV</button><button onclick="keepRawOnly()">Conserver dans le RAW seulement</button><button class="light" onclick="editSuggestion()">Modifier / préciser</button><button class="danger" onclick="deleteFromRaw()">Supprimer du RAW</button></div>
  <div class="card"><h3>Profil enrichi local</h3><div id="memoryList"><p class="small">Aucune donnée enrichie locale pour le moment.</p></div><button class="light" onclick="downloadRaw()">Télécharger mémoire locale RAW</button><button class="light" onclick="resetMemory()">Réinitialiser la mémoire locale</button><p class="small"><strong>RAW JSON :</strong> ce fichier joue provisoirement le rôle de base de données locale et de mémoire IA. Il contient le profil, les données ajoutées, les choix de validation, les données retirées de certains CV et les éléments supprimés. Pour une prochaine analyse statique, fournissez ce fichier avec le CV source afin de repartir du dernier état connu.</p></div>
 </section>
@@ -32,40 +32,201 @@
 <section class="grid2"><article class="card"><h2>Preuves fortes disponibles</h2><ul><li>28+ ans en Clinical / Nonclinical Research Operations.</li><li>13+ ans de delivery global full remote.</li><li>Programmes CDISC/SEND et plateformes réglementaires pour clients pharma globaux.</li><li>Déploiement CTMS/EDC, validation, gouvernance et support transformation.</li><li>KPI/KRI compliance, forecasting, FTE planning, CRO/vendor oversight.</li><li>Bid defense, steering committees, dispute mitigation et client retention.</li></ul></article><article class="card"><h2>Familles de postes testables</h2><ul><li>eClinical Program Director</li><li>Regulatory Data Solutions Lead</li><li>Clinical Operations Director</li><li>CTMS/EDC Implementation Lead</li><li>Clinical Systems Transformation</li><li>Clinical Technology / Vendor Oversight</li></ul></article></section>
 </main>
 <script>
-let raw = null; let qIndex=0; let pending=null; let score=88;
-const questions=[
- ['L’offre peut viser plusieurs niveaux de direction clinique ou eClinical.','Quel positionnement veux-tu privilégier : Clinical Operations Director, eClinical Program Director, CTMS/EDC Lead ou Regulatory Data Solutions ?','positioning'],
- ['La responsabilité managériale récente doit être claire.','Peux-tu préciser les équipes réellement pilotées récemment : internes, SMEs, développeurs, SQA, CRO/vendors, clients, et ton niveau de décision ?','leadership'],
- ['La valeur réglementaire doit être documentée.','Quel exemple illustre le mieux ton impact sur CDISC/SEND, CTMS/EDC, inspection readiness ou qualité de données ?','regulatory'],
- ['La cible finale doit être assumée.','Quels postes veux-tu éviter pour ne pas être réduit à un rôle trop étroit ou trop technique ?','negative_target']
+let raw = null;
+let qIndex = 0;
+let pending = null;
+let score = 0;
+let currentAnalysis = { family: 'none', score: 0, isOutOfTarget: true, hits: [] };
+
+const defaultRaw = {
+  profile_id: 'NICO',
+  user_memory: [],
+  cv_usage_log: [],
+  deleted_from_raw: [],
+  validated_core: {
+    proofs: [
+      '28+ ans en Clinical / Nonclinical Research Operations.',
+      '13+ ans de delivery global full remote.',
+      'Programmes Sanofi, BMS, Bayer, Ipsen, Novo Nordisk.',
+      'Déploiement et maintenance de solutions CDISC/SEND et regulatory-grade data.'
+    ]
+  },
+  skills: {
+    clinical_operations: ['Clinical Operations', 'Clinical trial oversight', 'CRO/vendor oversight', 'Phase I-IV studies', 'Inspection readiness'],
+    eclinical_technology: ['CTMS', 'EDC', 'eClinical delivery', 'KPI/KRI dashboards', 'Data quality'],
+    regulatory_data: ['ICH-GCP', 'CDISC/SEND', 'Regulatory-grade data', 'Audit readiness', 'Submission readiness'],
+    leadership: ['Global delivery', 'Cross-functional leadership', 'Client governance', 'Remote teams', 'Risk mitigation']
+  },
+  experiences: [
+    { title: 'Senior Clinical / eClinical Program Leader', company: 'Profil anonymisé', period: 'Parcours long', location: 'International / remote', bullets: ['Pilotage de programmes Clinical Operations et eClinical en environnement réglementé.', 'Coordination d’équipes transverses, clients, SMEs, partenaires et vendors.', 'Gouvernance qualité, conformité GCP/ICH, données et delivery international.'] }
+  ],
+  education: ['Formation scientifique / clinique anonymisée'],
+  affiliations: ['Associations et réseaux professionnels anonymisés'],
+  publication: 'Publication / contribution anonymisée.'
+};
+
+const questions = [
+  ['L’offre peut viser plusieurs niveaux de direction clinique ou eClinical.','Quel positionnement veux-tu privilégier : Clinical Operations Director, eClinical Program Director, CTMS/EDC Lead ou Regulatory Data Solutions ?','positioning'],
+  ['La responsabilité managériale récente doit être claire.','Peux-tu préciser les équipes réellement pilotées récemment : internes, SMEs, développeurs, SQA, CRO/vendors, clients, et ton niveau de décision ?','leadership'],
+  ['La valeur réglementaire doit être documentée.','Quel exemple illustre le mieux ton impact sur CDISC/SEND, CTMS/EDC, inspection readiness ou qualité de données ?','regulatory'],
+  ['La cible finale doit être assumée.','Quels postes veux-tu éviter pour ne pas être réduit à un rôle trop étroit ou trop technique ?','negative_target']
 ];
-async function init(){ raw = await fetch('data/profil_nico_v0_6_raw_seed.json').then(r=>r.json()).catch(()=>({profile_id:'NICO', user_memory:[], cv_usage_log:[], deleted_from_raw:[]})); const saved=localStorage.getItem('tbz_nico_raw_v06'); if(saved){try{raw=JSON.parse(saved)}catch(e){}} renderMemory(); analyzeOffer(); }
-function save(){ raw.last_updated_at=new Date().toISOString(); localStorage.setItem('tbz_nico_raw_v06', JSON.stringify(raw)); }
-function loadExample(t){ const v={clinops:'Clinical Operations Director international. Oversight of Phase I-IV studies, CRO/vendor management, GCP compliance, inspection readiness, CTMS/EDC performance dashboards, global cross-functional leadership.',regdata:'Regulatory Data Solutions Lead. CDISC/SEND transformation, regulatory-grade data platforms, nonclinical study workflows, pharma client governance, submission readiness.',off:'Responsable boutique retail luxe. Animation commerciale, merchandising, ventes terrain et relation client magasin.'}; document.getElementById('offerInput').value=v[t]; analyzeOffer(); }
-function analyzeOffer(){document.getElementById('analysis').style.display='block'; const txt=document.getElementById('offerInput').value.toLowerCase(); if(txt.includes('retail')||txt.includes('boutique')){score=22;document.getElementById('scoreBox').textContent=score;document.getElementById('analysisTitle').textContent='Hors axe principal détecté';document.getElementById('analysisText').textContent='L’offre ne mobilise pas clairement Clinical Operations, eClinical, GCP, CTMS/EDC ou regulatory data.';} else if(txt.includes('send')||txt.includes('regulatory')){score=92;document.getElementById('scoreBox').textContent=score;document.getElementById('analysisTitle').textContent='Lecture orientée Regulatory Data Solutions';document.getElementById('analysisText').textContent='L’offre valorise CDISC/SEND, solutions réglementaires, data governance et delivery pharma : très fort alignement si le positionnement est assumé.';} else {score=88;document.getElementById('scoreBox').textContent=score;document.getElementById('analysisTitle').textContent='Lecture orientée Clinical Operations / eClinical Program Direction';document.getElementById('analysisText').textContent='L’offre combine Clinical Operations, eClinical delivery, GCP compliance et leadership global. Les preuves sont fortes, avec besoin de cadrer le périmètre exact attendu.';} }
-function fillHelp(){document.getElementById('answerInput').value='Je privilégierais un positionnement eClinical Program Director, avec une spécialisation forte en Regulatory Data Solutions. Contexte : chez PointCross, j’ai piloté côté Europe un programme CDISC/SEND de long terme pour Sanofi afin d’harmoniser et industrialiser les flux de données non-cliniques réglementaires. Action : j’ai cadré les besoins métiers et réglementaires, coordonné les SMEs, les équipes produit et les parties prenantes client, puis accompagné le déploiement progressif. Résultat : le programme a été étendu jusqu’à couvrir 100 % des études non-cliniques Sanofi en 2025, avec une meilleure standardisation des données et readiness réglementaire.'}
-function proposeData(){ const val=document.getElementById('answerInput').value.trim(); if(!val){alert('Ajoutez une réponse avant de continuer.');return;} pending={id:'u_'+Date.now(), type:questions[qIndex][2], label:labelFor(questions[qIndex][2]), text:val, source:'user_answer', status:'suggested_from_user', created_at:new Date().toISOString(), used_in_current_cv:false}; document.getElementById('suggestionText').innerHTML='<strong>'+pending.label+'</strong><br>'+escapeHtml(pending.text); document.getElementById('suggestion').style.display='block'; }
-function labelFor(t){return {positioning:'Positionnement cible clarifié',leadership:'Responsabilité et pilotage d’équipes clarifiés',regulatory:'Preuve regulatory/eClinical documentée',negative_target:'Cibles à éviter clarifiées'}[t]||'Donnée utilisateur'}
-function useInCv(){ pending.status='confirmed_by_user'; pending.used_in_current_cv=true; pending.cv_decision='use_in_current_cv'; raw.user_memory=raw.user_memory||[]; raw.user_memory.push(pending); raw.cv_usage_log=raw.cv_usage_log||[]; raw.cv_usage_log.push({item_id:pending.id, action:'used_in_current_cv', date:new Date().toISOString(), offer:document.getElementById('offerInput').value}); score=Math.min(99, score+4); document.getElementById('scoreBox').textContent=score; finishDecision(); }
+
+const examples = {
+  clinops: 'Clinical Operations Director international. Oversight of Phase I-IV studies, CRO/vendor management, GCP compliance, inspection readiness, CTMS/EDC performance dashboards, global cross-functional leadership.',
+  regdata: 'Regulatory Data Solutions Lead. CDISC/SEND transformation, regulatory-grade data platforms, nonclinical study workflows, pharma client governance, submission readiness.',
+  off: 'Responsable boutique retail luxe. Animation commerciale, merchandising, ventes terrain et relation client magasin.'
+};
+
+function normalizeRaw(obj){
+  const r = Object.assign({}, defaultRaw, obj || {});
+  r.user_memory = Array.isArray(r.user_memory) ? r.user_memory : [];
+  r.cv_usage_log = Array.isArray(r.cv_usage_log) ? r.cv_usage_log : [];
+  r.deleted_from_raw = Array.isArray(r.deleted_from_raw) ? r.deleted_from_raw : [];
+  r.validated_core = r.validated_core || defaultRaw.validated_core;
+  r.validated_core.proofs = Array.isArray(r.validated_core.proofs) ? r.validated_core.proofs : defaultRaw.validated_core.proofs;
+  r.skills = Object.assign({}, defaultRaw.skills, r.skills || {});
+  ['clinical_operations','eclinical_technology','regulatory_data','leadership'].forEach(k => { if(!Array.isArray(r.skills[k])) r.skills[k] = defaultRaw.skills[k]; });
+  r.experiences = Array.isArray(r.experiences) && r.experiences.length ? r.experiences : defaultRaw.experiences;
+  r.education = Array.isArray(r.education) ? r.education : defaultRaw.education;
+  r.affiliations = Array.isArray(r.affiliations) ? r.affiliations : defaultRaw.affiliations;
+  r.publication = r.publication || defaultRaw.publication;
+  return r;
+}
+
+async function init(){
+  raw = await fetch('data/profile.json').then(r=>r.json()).catch(()=>defaultRaw);
+  raw = normalizeRaw(raw);
+  const saved = localStorage.getItem('tbz_nico_raw_v07');
+  if(saved){ try { raw = normalizeRaw(JSON.parse(saved)); } catch(e){} }
+  renderMemory();
+  analyzeOffer();
+}
+function save(){ raw = normalizeRaw(raw); raw.last_updated_at = new Date().toISOString(); localStorage.setItem('tbz_nico_raw_v07', JSON.stringify(raw)); }
+function loadExample(t){ document.getElementById('offerInput').value = examples[t] || examples.clinops; analyzeOffer(); }
+function countHits(text, list){ return list.filter(s => text.includes(s)); }
+function wordCount(text){ return text.split(/\s+/).filter(Boolean).length; }
+
+function classifyOffer(text){
+  const t = text.toLowerCase();
+  const clinical = countHits(t, ['clinical operations','clinical operation','essais cliniques','essai clinique','études cliniques','etudes cliniques','clinical trial','trial','study manager','global study','phase i','phase ii','phase iii','phase iv','phase i-iv','phase i à iv','phase 1','phase 2','phase 3','phase 4']);
+  const eclinical = countHits(t, ['ctms','edc','eclinical','cdisc','send','data quality','kpi','kri','dashboard','dashboards','data management','biostatistics']);
+  const regulatory = countHits(t, ['ich-gcp','gcp','ich','fda','ema','audit','audits','inspection readiness','inspections réglementaires','inspections reglementaires','réglementations internationales','reglementations internationales','regulatory','réglementaire','reglementaire']);
+  const leadership = countHits(t, ['cro','vendors','prestataires','investigateurs','coordination','équipes transverses','equipes transverses','cross-functional','international','multicentrique','global','stakeholders','parties prenantes','risques','budget','reporting']);
+  const offTerms = countHits(t, ['retail','boutique','merchandising','vente magasin','relation client magasin','inspecteur','inspector','commercial terrain','pompier','chauffeur','développeur front','developpeur front']);
+  const all = [...clinical, ...eclinical, ...regulatory, ...leadership];
+  const uniqueHits = [...new Set(all)];
+  if (wordCount(t) < 4 && uniqueHits.length < 2) return {family:'out', score:18, isOutOfTarget:true, hits:uniqueHits};
+  if (offTerms.length && uniqueHits.length < 3) return {family:'out', score:18, isOutOfTarget:true, hits:uniqueHits};
+  if (uniqueHits.length < 2) return {family:'out', score:18, isOutOfTarget:true, hits:uniqueHits};
+  if (t.includes('global study manager') || (clinical.length >= 3 && leadership.length >= 3 && regulatory.length >= 1)) return {family:'global_study', score:88, isOutOfTarget:false, hits:uniqueHits};
+  if (t.includes('send') || t.includes('cdisc') || t.includes('regulatory data')) return {family:'regdata', score:92, isOutOfTarget:false, hits:uniqueHits};
+  if (clinical.length >= 2 || eclinical.length >= 2) return {family:'clinops', score:86, isOutOfTarget:false, hits:uniqueHits};
+  return {family:'partial', score:58, isOutOfTarget:false, hits:uniqueHits};
+}
+
+function setList(id, items){ document.getElementById(id).innerHTML = items.map(x => '<li>'+escapeHtml(x)+'</li>').join(''); }
+function analyzeOffer(){
+  document.getElementById('analysis').style.display = 'block';
+  const txt = document.getElementById('offerInput').value || '';
+  currentAnalysis = classifyOffer(txt);
+  score = currentAnalysis.score;
+  document.getElementById('scoreBox').textContent = score;
+  if(currentAnalysis.family === 'out'){
+    document.getElementById('analysisTitle').textContent = 'Lecture hors cible ou insuffisante';
+    document.getElementById('analysisText').textContent = 'Le texte fourni ne contient pas assez de signaux liés aux Clinical Operations, eClinical, CTMS/EDC, conformité GCP, coordination CRO ou pilotage d’études cliniques. TalentBusterZ ne force pas un bon score.';
+    document.getElementById('inlineTitle').textContent = 'CV non adapté — analyse non concluante';
+    document.getElementById('inlineSummary').textContent = 'Aucun CV ciblé ne doit être généré automatiquement sur cette base. Il faut une fiche de poste complète ou des signaux métier plus précis.';
+    setList('inlineBullets', ['Pas assez de signaux Clinical Operations / eClinical.', 'Aucune adaptation positive du CV proposée.', 'Action recommandée : coller une fiche de poste complète ou classer cette opportunité hors cible.']);
+    setList('matchSkills', ['Aucun match métier robuste détecté', 'Texte trop court ou hors cible', 'Analyse à reprendre avec une offre complète']);
+  } else if(currentAnalysis.family === 'global_study'){
+    document.getElementById('analysisTitle').textContent = 'Lecture orientée Global Study Management / Clinical Operations';
+    document.getElementById('analysisText').textContent = 'L’offre combine pilotage international d’études cliniques, coordination CRO/prestataires, conformité ICH-GCP, reporting, KPIs et gestion des risques. Très bon alignement, à condition de positionner eClinical comme accélérateur et non comme périmètre unique.';
+    document.getElementById('inlineTitle').textContent = 'CV adapté — Global Study Manager / Clinical Operations Lead';
+    document.getElementById('inlineSummary').textContent = 'Profil senior orienté gestion internationale d’études cliniques, coordination transverse, conformité GCP/ICH, pilotage CRO et culture eClinical/data quality.';
+    setList('inlineBullets', ['Pilotage de programmes cliniques internationaux et coordination d’équipes transverses.', 'CRO/vendor oversight, KPIs, risques, reporting, inspection/audit readiness.', 'Culture eClinical CTMS/EDC et data quality comme levier de pilotage opérationnel.']);
+    setList('matchSkills', ['Global Study Management', 'Clinical Operations', 'CRO / Vendor Oversight', 'ICH-GCP', 'KPIs / risques / reporting', 'Coordination internationale']);
+  } else if(currentAnalysis.family === 'regdata'){
+    document.getElementById('analysisTitle').textContent = 'Lecture orientée Regulatory Data Solutions';
+    document.getElementById('analysisText').textContent = 'L’offre valorise CDISC/SEND, plateformes réglementaires, data governance et delivery pharma : très fort alignement si le positionnement est assumé.';
+    document.getElementById('inlineTitle').textContent = 'CV adapté — Regulatory Data Solutions / eClinical Transformation';
+    document.getElementById('inlineSummary').textContent = 'Profil senior à l’interface données réglementaires, plateformes eClinical, gouvernance qualité et delivery international.';
+    setList('inlineBullets', ['Programmes CDISC/SEND et regulatory-grade data pour environnements pharma.', 'Gouvernance des données, qualité, readiness et coordination produit/client.', 'Transformation process/technologie sans revendiquer un rôle développeur hands-on.']);
+    setList('matchSkills', ['CDISC / SEND', 'Regulatory data', 'Data governance', 'Submission readiness', 'eClinical platforms', 'Client governance']);
+  } else {
+    document.getElementById('analysisTitle').textContent = 'Lecture orientée Clinical Operations / eClinical Program Direction';
+    document.getElementById('analysisText').textContent = 'L’offre combine Clinical Operations, eClinical delivery, GCP compliance et leadership global. Les preuves sont fortes, avec besoin de cadrer le périmètre exact attendu.';
+    document.getElementById('inlineTitle').textContent = 'CV adapté — Clinical Operations / eClinical Transformation';
+    document.getElementById('inlineSummary').textContent = 'Profil senior capable de piloter des programmes Clinical Operations et eClinical en environnement réglementé, avec gouvernance CTMS/EDC, conformité GCP et delivery international.';
+    setList('inlineBullets', ['Pilotage de programmes réglementaires et plateformes CDISC/SEND pour clients pharma globaux.', 'Déploiement CTMS/EDC, KPI/KRI compliance, data quality et inspection readiness.', 'Leadership transverse avec équipes SMEs, développement, SQA, clients et partenaires.']);
+    setList('matchSkills', ['Clinical Operations', 'CTMS / EDC', 'GCP / ICH', 'CRO / Vendor Oversight', 'KPI / KRI Performance', 'Global delivery full remote']);
+  }
+  updateAssistantForAnalysis();
+}
+
+function updateAssistantForAnalysis(){
+  if(currentAnalysis.isOutOfTarget){
+    document.getElementById('qCount').textContent = 'Question hors cible';
+    document.getElementById('qTitle').textContent = 'L’offre ne justifie pas un enrichissement du CV.';
+    document.getElementById('qText').textContent = 'Souhaites-tu classer cette opportunité comme hors cible, ou ajouter du contexte montrant un vrai lien avec Clinical Operations, eClinical, CTMS/EDC, GCP, CRO ou études cliniques ?';
+    document.getElementById('gainHint').textContent = 'Gain indicatif : 0 tant qu’aucun signal métier robuste n’est apporté.';
+  } else {
+    document.getElementById('qCount').textContent = 'Question '+(qIndex+1)+' / '+questions.length;
+    document.getElementById('qTitle').textContent = questions[qIndex][0];
+    document.getElementById('qText').textContent = questions[qIndex][1];
+    document.getElementById('gainHint').textContent = 'Gain indicatif : +2 à +5 si l’utilisateur choisit d’utiliser la donnée dans ce CV.';
+  }
+}
+
+function fillHelp(){
+  if(currentAnalysis.isOutOfTarget){
+    document.getElementById('answerInput').value = 'Je classe cette opportunité hors cible pour ce profil : le texte fourni ne contient pas de signaux suffisamment solides en Clinical Operations, eClinical, CTMS/EDC, GCP, CRO ou études cliniques. Aucun CV adapté ne doit être généré sur cette base.';
+    return;
+  }
+  document.getElementById('answerInput').value='Je privilégierais un positionnement eClinical Program Director, avec une spécialisation forte en Regulatory Data Solutions. Contexte : chez PointCross, j’ai piloté côté Europe un programme CDISC/SEND de long terme pour Sanofi afin d’harmoniser et industrialiser les flux de données non-cliniques réglementaires. Action : j’ai cadré les besoins métiers et réglementaires, coordonné les SMEs, les équipes produit et les parties prenantes client, puis accompagné le déploiement progressif. Résultat : le programme a été étendu jusqu’à couvrir 100 % des études non-cliniques Sanofi en 2025, avec une meilleure standardisation des données et readiness réglementaire.';
+}
+function proposeData(){
+  const val=document.getElementById('answerInput').value.trim();
+  if(!val){alert('Ajoutez une réponse avant de continuer.');return;}
+  const type = currentAnalysis.isOutOfTarget ? 'out_of_target' : questions[qIndex][2];
+  pending={id:'u_'+Date.now(), type, label:labelFor(type), text:val, source:'user_answer', status:'suggested_from_user', created_at:new Date().toISOString(), used_in_current_cv:false};
+  document.getElementById('suggestionText').innerHTML='<strong>'+pending.label+'</strong><br>'+escapeHtml(pending.text);
+  document.getElementById('suggestion').style.display='block';
+}
+function labelFor(t){return {positioning:'Positionnement cible clarifié',leadership:'Responsabilité et pilotage d’équipes clarifiés',regulatory:'Preuve regulatory/eClinical documentée',negative_target:'Cibles à éviter clarifiées',out_of_target:'Opportunité classée hors cible'}[t]||'Donnée utilisateur'}
+function useInCv(){
+  if(currentAnalysis.isOutOfTarget){ alert('Hors cible : cette donnée peut être conservée dans le RAW, mais ne doit pas enrichir le CV courant.'); return; }
+  pending.status='confirmed_by_user'; pending.used_in_current_cv=true; pending.cv_decision='use_in_current_cv'; raw.user_memory=raw.user_memory||[]; raw.user_memory.push(pending); raw.cv_usage_log=raw.cv_usage_log||[]; raw.cv_usage_log.push({item_id:pending.id, action:'used_in_current_cv', date:new Date().toISOString(), offer:document.getElementById('offerInput').value}); score=Math.min(99, score+4); document.getElementById('scoreBox').textContent=score; finishDecision();
+}
 function keepRawOnly(){ pending.status='kept_in_raw_only'; pending.used_in_current_cv=false; pending.cv_decision='keep_raw_only'; raw.user_memory=raw.user_memory||[]; raw.user_memory.push(pending); finishDecision(); }
 function deleteFromRaw(){ pending.status='deleted_by_user'; pending.used_in_current_cv=false; raw.deleted_from_raw=raw.deleted_from_raw||[]; raw.deleted_from_raw.push(pending); finishDecision(); }
 function editSuggestion(){ document.getElementById('answerInput').value=pending.text; document.getElementById('suggestion').style.display='none'; }
 function finishDecision(){ save(); renderMemory(); document.getElementById('suggestion').style.display='none'; document.getElementById('answerInput').value=''; nextQuestion(); }
-function nextQuestion(){ qIndex=(qIndex+1)%questions.length; document.getElementById('qCount').textContent='Question '+(qIndex+1)+' / '+questions.length; document.getElementById('qTitle').textContent=questions[qIndex][0]; document.getElementById('qText').textContent=questions[qIndex][1]; }
+function nextQuestion(){ if(currentAnalysis.isOutOfTarget){ updateAssistantForAnalysis(); return; } qIndex=(qIndex+1)%questions.length; updateAssistantForAnalysis(); }
 function renderMemory(){ const box=document.getElementById('memoryList'); const mem=(raw&&raw.user_memory)||[]; if(!mem.length){box.innerHTML='<p class="small">Aucune donnée enrichie locale pour le moment.</p>';return;} box.innerHTML=mem.map(m=>'<div class="memoryItem"><strong>'+escapeHtml(m.label)+'</strong> — '+statusText(m)+'<br><span class="small">'+escapeHtml(m.text).slice(0,420)+(m.text.length>420?'…':'')+'</span></div>').join(''); }
 function statusText(m){return m.status==='confirmed_by_user'?'utilisée dans ce CV et conservée dans le RAW':m.status==='kept_in_raw_only'?'conservée dans le RAW seulement':m.status==='deleted_by_user'?'supprimée du RAW par l’utilisateur':'suggestion issue de la réponse'}
 function cvItems(){return ((raw.user_memory||[]).filter(x=>x.used_in_current_cv));}
-function generateDeliverables(){ const cv=document.getElementById('cvDoc'); const note=document.getElementById('noteDoc'); const items=cvItems(); const itemLis=items.map(x=>'<li><strong>'+escapeHtml(x.label)+' :</strong> '+escapeHtml(x.text)+'</li>').join(''); cv.innerHTML=`<h1>eClinical Program Director / Regulatory Data Solutions Leader</h1><div class="meta">Profil anonymisé — version candidat générée localement à partir du CV source et de la mémoire RAW TalentBusterZ</div><h2>Synthèse professionnelle</h2><p>Leader senior en Clinical Operations et transformation eClinical, avec 28+ ans d’expérience en développement pharmaceutique, gouvernance CTMS/EDC, conformité GCP/ICH, CDISC/SEND et delivery international. Profil positionné à l’interface entre opérations cliniques/non-cliniques, données réglementaires, équipes produit/IT, SMEs et parties prenantes pharma globales.</p><h2>Réalisations clés</h2><ul>${raw.validated_core.proofs.map(p=>'<li>'+escapeHtml(p)+'</li>').join('')}${itemLis}</ul><h2>Compétences ciblées</h2><div class="twoCol"><ul>${raw.skills.clinical_operations.concat(raw.skills.eclinical_technology).slice(0,12).map(s=>'<li>'+escapeHtml(s)+'</li>').join('')}</ul><ul>${raw.skills.regulatory_data.concat(raw.skills.leadership).slice(0,12).map(s=>'<li>'+escapeHtml(s)+'</li>').join('')}</ul></div><h2>Expérience professionnelle</h2>${raw.experiences.map(e=>`<h3>${escapeHtml(e.title)} — ${escapeHtml(e.company)}</h3><div class="meta">${escapeHtml(e.period)} · ${escapeHtml(e.location)}</div><ul>${e.bullets.map(b=>'<li>'+escapeHtml(b)+'</li>').join('')}</ul>`).join('')}<h2>Formation & affiliations</h2><ul>${raw.education.map(e=>'<li>'+escapeHtml(e)+'</li>').join('')}<li>Affiliations : ${raw.affiliations.map(escapeHtml).join(', ')}</li><li>${escapeHtml(raw.publication)}</li></ul>`;
- note.innerHTML=`<h1>Note TalentBusterZ — Profil N</h1><p><strong>Score indicatif statique :</strong> ${score}/100</p><p><strong>Famille détectée :</strong> Clinical Operations / eClinical / Regulatory Data Solutions</p><h2>Données utilisées dans ce CV</h2><ul>${items.length?items.map(x=>'<li>'+escapeHtml(x.label)+'</li>').join(''):'<li>Aucune donnée utilisateur ajoutée au CV courant.</li>'}</ul><h2>Données conservées dans le RAW seulement</h2><ul>${(raw.user_memory||[]).filter(x=>!x.used_in_current_cv).map(x=>'<li>'+escapeHtml(x.label)+' — '+escapeHtml(x.text).slice(0,180)+'…</li>').join('')||'<li>Aucune.</li>'}</ul><h2>Risques à surveiller</h2><ul><li>Ne pas réduire le profil à un rôle CRA, Data Manager ou chef de projet IT générique.</li><li>Ne pas revendiquer certification, expertise médicale/statistique ou développement hands-on récent sans validation.</li><li>Clarifier le niveau de people management/budget récent selon l’offre.</li></ul>`;
- document.getElementById('rawDoc').textContent=JSON.stringify(raw,null,2); document.getElementById('deliverables').style.display='block'; }
+function generateDeliverables(){
+  raw = normalizeRaw(raw);
+  const cv=document.getElementById('cvDoc'); const note=document.getElementById('noteDoc'); const items=cvItems(); const itemLis=items.map(x=>'<li><strong>'+escapeHtml(x.label)+' :</strong> '+escapeHtml(x.text)+'</li>').join('');
+  if(currentAnalysis.isOutOfTarget){
+    cv.innerHTML='<h1>Aucun CV adapté généré</h1><div class="meta">TalentBusterZ — garde-fou hors cible</div><p>Le texte analysé ne contient pas assez de signaux robustes pour adapter le CV du Profil N. Le système refuse de produire un CV orienté artificiellement.</p><h2>Diagnostic</h2><ul><li>Score indicatif : '+score+'/100</li><li>Famille détectée : hors cible ou insuffisante</li><li>Action recommandée : fournir une fiche de poste complète ou classer l’opportunité comme non prioritaire.</li></ul>';
+    note.innerHTML='<h1>Note TalentBusterZ — analyse hors cible</h1><p><strong>Score indicatif :</strong> '+score+'/100</p><p>Cette analyse montre un garde-fou important : le prototype ne doit pas forcer un bon matching lorsqu’un texte est trop pauvre ou non pertinent.</p><h2>Décision proposée</h2><ul><li>Ne pas générer de CV ciblé.</li><li>Conserver éventuellement le test dans le RAW comme opportunité hors cible.</li><li>Relancer l’analyse avec une offre complète.</li></ul>';
+  } else {
+    const headline = currentAnalysis.family === 'global_study' ? 'Global Study Manager / Clinical Operations Lead' : currentAnalysis.family === 'regdata' ? 'Regulatory Data Solutions / eClinical Transformation Leader' : 'eClinical Program Director / Clinical Operations Transformation Leader';
+    cv.innerHTML=`<h1>${headline}</h1><div class="meta">Profil anonymisé — version candidat générée localement à partir du CV source et de la mémoire RAW TalentBusterZ</div><h2>Synthèse professionnelle</h2><p>Leader senior en Clinical Operations et transformation eClinical, avec 28+ ans d’expérience en développement pharmaceutique, gouvernance CTMS/EDC, conformité GCP/ICH, CDISC/SEND et delivery international. Profil positionné à l’interface entre opérations cliniques/non-cliniques, données réglementaires, équipes produit/IT, SMEs et parties prenantes pharma globales.</p><h2>Réalisations clés</h2><ul>${raw.validated_core.proofs.map(p=>'<li>'+escapeHtml(p)+'</li>').join('')}${itemLis}</ul><h2>Compétences ciblées</h2><div class="twoCol"><ul>${raw.skills.clinical_operations.concat(raw.skills.eclinical_technology).slice(0,12).map(s=>'<li>'+escapeHtml(s)+'</li>').join('')}</ul><ul>${raw.skills.regulatory_data.concat(raw.skills.leadership).slice(0,12).map(s=>'<li>'+escapeHtml(s)+'</li>').join('')}</ul></div><h2>Expérience professionnelle</h2>${raw.experiences.map(e=>`<h3>${escapeHtml(e.title)} — ${escapeHtml(e.company)}</h3><div class="meta">${escapeHtml(e.period)} · ${escapeHtml(e.location)}</div><ul>${(e.bullets||[]).map(b=>'<li>'+escapeHtml(b)+'</li>').join('')}</ul>`).join('')}<h2>Formation & affiliations</h2><ul>${raw.education.map(e=>'<li>'+escapeHtml(e)+'</li>').join('')}<li>Affiliations : ${raw.affiliations.map(escapeHtml).join(', ')}</li><li>${escapeHtml(raw.publication)}</li></ul>`;
+    note.innerHTML=`<h1>Note TalentBusterZ — Profil N</h1><p><strong>Score indicatif statique :</strong> ${score}/100</p><p><strong>Famille détectée :</strong> ${escapeHtml(currentAnalysis.family)}</p><h2>Données utilisées dans ce CV</h2><ul>${items.length?items.map(x=>'<li>'+escapeHtml(x.label)+'</li>').join(''):'<li>Aucune donnée utilisateur ajoutée au CV courant.</li>'}</ul><h2>Données conservées dans le RAW seulement</h2><ul>${(raw.user_memory||[]).filter(x=>!x.used_in_current_cv).map(x=>'<li>'+escapeHtml(x.label)+' — '+escapeHtml(x.text).slice(0,180)+'…</li>').join('')||'<li>Aucune.</li>'}</ul><h2>Risques à surveiller</h2><ul><li>Ne pas réduire le profil à un rôle CRA, Data Manager ou chef de projet IT générique.</li><li>Ne pas revendiquer certification, expertise médicale/statistique ou développement hands-on récent sans validation.</li><li>Clarifier le niveau de people management/budget récent selon l’offre.</li></ul>`;
+  }
+  document.getElementById('rawDoc').textContent=JSON.stringify(raw,null,2); document.getElementById('deliverables').style.display='block';
+}
 function showPanel(p){ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); event.target.classList.add('active'); document.querySelectorAll('.outputPanel').forEach(x=>x.classList.remove('active')); document.getElementById('panel'+p.charAt(0).toUpperCase()+p.slice(1)).classList.add('active'); }
 function downloadCvAndRaw(){ generateDeliverables(); downloadFile('cv_candidat_profil_n.doc', wrapHtml(document.getElementById('cvDoc').innerHTML), 'application/msword'); setTimeout(()=>downloadRaw(),350); }
 function downloadNote(){ generateDeliverables(); downloadFile('note_talentbusterz_profil_n.doc', wrapHtml(document.getElementById('noteDoc').innerHTML), 'application/msword'); }
 function downloadAppSummary(){ const html='<h1>Synthèse app TalentBusterZ — Profil N</h1><p>Score indicatif : '+score+'/100</p><p>'+escapeHtml(document.getElementById('analysisText').textContent)+'</p>'; downloadFile('synthese_app_profil_n.html', wrapHtml(html), 'text/html'); }
 function downloadRaw(){ save(); downloadFile('raw_profile_nico_updated.json', JSON.stringify(raw,null,2), 'application/json'); }
 function printCv(){ generateDeliverables(); const w=window.open('','_blank'); w.document.write(wrapHtml(document.getElementById('cvDoc').innerHTML)); w.document.close(); w.print(); }
-function resetMemory(){ if(confirm('Réinitialiser la mémoire locale de ce navigateur ?')){localStorage.removeItem('tbz_nico_raw_v06'); location.reload();}}
-function loadRawFile(e){ const f=e.target.files[0]; if(!f)return; const reader=new FileReader(); reader.onload=()=>{try{raw=JSON.parse(reader.result); save(); renderMemory(); document.getElementById('rawStatus').textContent='RAW chargé : '+f.name+' — mémoire locale remplacée.';}catch(err){alert('Fichier RAW JSON invalide.');}}; reader.readAsText(f); }
+function resetMemory(){ if(confirm('Réinitialiser la mémoire locale de ce navigateur ?')){localStorage.removeItem('tbz_nico_raw_v07'); location.reload();}}
+function loadRawFile(e){ const f=e.target.files[0]; if(!f)return; const reader=new FileReader(); reader.onload=()=>{try{raw=normalizeRaw(JSON.parse(reader.result)); save(); renderMemory(); document.getElementById('rawStatus').textContent='RAW chargé : '+f.name+' — mémoire locale remplacée.';}catch(err){alert('Fichier RAW JSON invalide.');}}; reader.readAsText(f); }
 function wrapHtml(body){return '<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:Arial,sans-serif;line-height:1.45;margin:36px;max-width:900px;color:#111827}h1{color:#1e3a8a}h2{color:#1e3a8a;border-bottom:1px solid #dbeafe;padding-bottom:4px}h3{margin-bottom:3px}.meta{color:#64748b;font-size:12px}li{margin-bottom:5px}</style></head><body>'+body+'</body></html>';}
 function downloadFile(name, content, type){ const blob=new Blob([content],{type}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500); }
 function escapeHtml(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
